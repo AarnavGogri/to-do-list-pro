@@ -56,10 +56,13 @@ export function activate(context: vscode.ExtensionContext) {
         const dataProvider = new SampleDataProvider();
         vscode.window.registerTreeDataProvider('your-view-id', dataProvider);
 
-        // Register command to handle item selection
-        vscode.commands.registerCommand('todolist.handleTodoItemClick', (label: string, filePath: string) => {
-            handleTodoItemClick(label, filePath);
-        });
+        // Register command to handle item selection only once
+        if (!context.globalState.get('todolist.handleTodoItemClickRegistered')) {
+            vscode.commands.registerCommand('todolist.handleTodoItemClick', (label: string, filePath: string) => {
+                handleTodoItemClick(label, filePath);
+            });
+            context.globalState.update('todolist.handleTodoItemClickRegistered', true);
+        }
     });
 
     context.subscriptions.push(disposable2);
