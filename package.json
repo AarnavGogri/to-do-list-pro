@@ -1,6 +1,7 @@
 {
-  "name": "todolist",
-  "displayName": "TodoList",
+  "name": "todo-list-pro",
+  "displayName": "TodoListPro",
+  "publisher": "AarnavGogri",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -26,8 +27,8 @@
       "activitybar": [
           {
               "id": "your-unique-container-id",
-              "title": "My Sidebar",
-              "icon": "icon.jpeg"
+              "title": "todo list",
+              "icon": "icon4.png"
           }
       ]
     },
@@ -35,7 +36,7 @@
       "your-unique-container-id": [
           {
               "id": "your-view-id",
-              "name": "Main View"
+              "name": ""
           }
       ]
     }
