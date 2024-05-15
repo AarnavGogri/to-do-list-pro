@@ -67,7 +67,7 @@ export function activate(context: vscode.ExtensionContext) {
     // Define method to handle item click and navigate to the TODO
     function handleTodoItemClick(label: string, filePath: string) {
         vscode.workspace.openTextDocument(filePath).then(doc => {
-            const line = Number(label.match(/line (\d+)/)[1]) - 1;
+            const line = Number(label.match(/line (\d+)/)?.[1]) - 1 || 0;
             vscode.window.showTextDocument(doc, { selection: new vscode.Range(line, 0, line, 0) });
         });
     }
